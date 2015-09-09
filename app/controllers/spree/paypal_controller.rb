@@ -54,7 +54,7 @@ module Spree
         :amount => order.total,
         :payment_method => payment_method
       })
-      order.next
+      while order.next; end
       if order.complete?
         flash.notice = Spree.t(:order_processed_successfully)
         flash[:order_completed] = true
